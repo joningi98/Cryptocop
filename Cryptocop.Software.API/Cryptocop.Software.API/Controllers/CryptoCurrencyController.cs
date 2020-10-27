@@ -6,6 +6,16 @@ namespace Cryptocop.Software.API.Controllers
     [Route("api/cryptocurrencies")]
     public class CryptoCurrencyController : ControllerBase
     {
-        // TODO: Setup routes
+        [HttpGet]
+        public IActionResult GetAllCryptocurrencies()
+        {
+            /*
+            TODO
+            Gets all available cryptocurrencies - the only available
+            cryptocurrencies in this platform are BitCoin (BTC), Ethereum (ETH), Tether (USDT) and
+            Monero (XMR)
+            */
+            return Ok();
+        }
     }
 }

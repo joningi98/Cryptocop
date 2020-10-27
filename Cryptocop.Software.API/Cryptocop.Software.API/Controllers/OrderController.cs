@@ -6,6 +6,27 @@ namespace Cryptocop.Software.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        // TODO: Setup routes
+        [HttpGet]
+        public IActionResult GetAllOrders()
+        {
+            /*
+            TODO
+            Gets all orders associated with the authenticated user
+            */
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult CreateOrder()
+        {
+            /*
+            TODO
+            Adds a new order associated with the authenticated user, see
+            Models section for reference
+            */
+
+            return Ok();
+        }
     }
 }

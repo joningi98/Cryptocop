@@ -6,6 +6,27 @@ namespace Cryptocop.Software.API.Controllers
     [ApiController]
     public class PaymentController : ControllerBase
     {
-        // TODO: Setup routes
+        [HttpGet]
+        public IActionResult GetAllPaymentCard()
+        {
+            /*
+            TODO
+            Gets all payment cards associated with the authenticated user
+            */
+            
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult CreatePaymentCard()
+        {
+            /*
+            TODO
+            Adds a new payment card associated with the authenticated
+            user, see Models section for reference
+            */
+
+            return Ok();
+        }
     }
 }
