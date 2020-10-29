@@ -1,0 +1,9 @@
+C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Models\bin\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.deps.json
+C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Models\bin\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.dll
+C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Models\bin\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.pdb
+C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Models\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.csprojAssemblyReference.cache
+C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Models\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.AssemblyInfoInputs.cache
+C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Models\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.AssemblyInfo.cs
+C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Models\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.csproj.CoreCompileInputs.cache
+C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Models\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.dll
+C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Models\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.pdb

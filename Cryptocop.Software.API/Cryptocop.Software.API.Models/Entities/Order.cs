@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Cryptocop.Software.API.Models.DTOs;
 
 namespace Cryptocop.Software.API.Models.Entities
 {
@@ -15,5 +17,10 @@ namespace Cryptocop.Software.API.Models.Entities
         public string MaskedCreditCard { get; set; }
         public DateTime OrderDate { get; set; }
         public float TotalPrice { get; set; }
+
+        // Navigation Properties
+        public User user { get; set; }
+        
+
     }
 }

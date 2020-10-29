@@ -1,3 +1,4 @@
+
 namespace Cryptocop.Software.API.Models.Entities
 {
     public class OrderItem
@@ -8,5 +9,8 @@ namespace Cryptocop.Software.API.Models.Entities
         public float Quantity { get; set; }
         public float UnitPrice { get; set; }
         public float TotalPrice { get; set; }
+    
+        // Navigation Properties 
+        public Order order { get; set; }
     }
 }

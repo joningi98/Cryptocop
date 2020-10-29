@@ -1,23 +1,48 @@
-﻿using Cryptocop.Software.API.Models.Entities;
+﻿using System.Linq;
+using Cryptocop.Software.API.Models.Entities;
+using Cryptocop.Software.API.Repositories.Contexts;
 using Cryptocop.Software.API.Repositories.Interfaces;
 
 namespace Cryptocop.Software.API.Repositories.Implementations
 {
     public class TokenRepository : ITokenRepository
     {
+        private readonly CryptocopDbContext _dbContext;
+
+        public TokenRepository(CryptocopDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public JwtToken CreateNewToken()
         {
-            throw new System.NotImplementedException();
+            var token = new JwtToken();
+            _dbContext.JwtTokens.Add(token);
+            _dbContext.SaveChanges();
+            return new JwtToken
+            {
+                Id = token.Id,
+                Backlisted = token.Backlisted
+            };
+        }
+
+        private JwtToken GetToken(int tokenId)
+        {
+            var token = _dbContext.JwtTokens.FirstOrDefault(t => t.Id == tokenId);
+            if (token == null) { throw new System.Exception("token not found"); }
+            else { return token; }
         }
 
         public bool IsTokenBlacklisted(int tokenId)
         {
-            throw new System.NotImplementedException();
+            var token = GetToken(tokenId);
+            return token.Backlisted;
         }
 
         public void VoidToken(int tokenId)
         {
-            throw new System.NotImplementedException();
+            var token = GetToken(tokenId);
+            token.Backlisted = true;
+            _dbContext.SaveChanges();
         }
     }
 }
