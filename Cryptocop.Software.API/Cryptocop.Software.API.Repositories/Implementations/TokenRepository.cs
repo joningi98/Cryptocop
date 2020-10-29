@@ -41,6 +41,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
         public void VoidToken(int tokenId)
         {
             var token = GetToken(tokenId);
+            if (token == null) { return; }
             token.Backlisted = true;
             _dbContext.SaveChanges();
         }

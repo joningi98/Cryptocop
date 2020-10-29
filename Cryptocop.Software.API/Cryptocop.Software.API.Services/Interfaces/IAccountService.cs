@@ -7,6 +7,6 @@ namespace Cryptocop.Software.API.Services.Interfaces
     {
         UserDto CreateUser(RegisterInputModel inputModel);
         UserDto AuthenticateUser(LoginInputModel loginInputModel);
-        void Logout(int tokenId);
+        void SignOut(int tokenId);
     }
 }

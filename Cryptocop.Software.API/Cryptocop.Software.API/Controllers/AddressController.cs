@@ -1,11 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Cryptocop.Software.API.Models.Entities;
+using Cryptocop.Software.API.Models.InputModels;
+using Cryptocop.Software.API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Cryptocop.Software.API.Controllers
 {
+    [Authorize]
     [Route("api/addresses")]
     [ApiController]
     public class AddressController : ControllerBase
     {
+        private readonly IAddressService _addressService;
+
+        public AddressController(IAddressService addressService)
+        {
+            _addressService = addressService;
+        }
+
         [HttpGet]
         public IActionResult GetAllAddresses()
         {
@@ -17,13 +30,10 @@ namespace Cryptocop.Software.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateAddress()
+        public IActionResult CreateAddress(AddressInputModel addressInput)
         {
-            /*
-            TODO
-            Adds a new address associated with authenticated user, see
-            Models section for reference
-            */
+            var email = User.Claims.FirstOrDefault(c => c.Type == "Email").Value;
+            _addressService.AddAddress(email, addressInput);
             return Ok();
         }
 

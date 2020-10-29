@@ -29,8 +29,10 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             // Get User
             var user = GetUser(email);
 
+            // Create new address
             var entity = new Address
             {
+                UserId = user.Id,
                 StreetName = address.StreetName,
                 HouseNumber = address.HouseNumber,
                 ZipCode = address.ZipCode,

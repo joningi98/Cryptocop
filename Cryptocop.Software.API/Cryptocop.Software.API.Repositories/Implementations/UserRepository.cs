@@ -72,6 +72,5 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                 TokenId = token.Id              
             };
         }
-
     }
 }

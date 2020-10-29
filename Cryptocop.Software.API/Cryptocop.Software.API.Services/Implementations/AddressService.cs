@@ -8,13 +8,20 @@ namespace Cryptocop.Software.API.Services.Implementations
 {
     public class AddressService : IAddressService
     {
+        private readonly IAddressRepository _addressRepository;
+
+        public AddressService(IAddressRepository addressRepository)
+        {
+            _addressRepository = addressRepository;
+        }
+
         public void AddAddress(string email, AddressInputModel address)
         {
-            throw new System.NotImplementedException();
+            _addressRepository.AddAddress(email, address);
         }
 
         public IEnumerable<AddressDto> GetAllAddresses(string email)
-        {
+        { 
             throw new System.NotImplementedException();
         }
 
