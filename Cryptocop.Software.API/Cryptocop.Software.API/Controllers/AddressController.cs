@@ -12,6 +12,12 @@ namespace Cryptocop.Software.API.Controllers
     [ApiController]
     public class AddressController : ControllerBase
     {
+        private string getEmail()
+        {
+            var email = User.Claims.FirstOrDefault(c => c.Type == "Email").Value;
+            if (email == null) { return null;}
+            else { return email; }
+        }
         private readonly IAddressService _addressService;
 
         public AddressController(IAddressService addressService)
@@ -22,29 +28,27 @@ namespace Cryptocop.Software.API.Controllers
         [HttpGet]
         public IActionResult GetAllAddresses()
         {
-            /*
-            TODO
-            Gets all addresses associated with authenticated user
-            */
-            return Ok();
+            var email = getEmail();
+            if (email == null) { return NotFound(); }
+            return Ok(_addressService.GetAllAddresses(email));
         }
 
         [HttpPost]
         public IActionResult CreateAddress(AddressInputModel addressInput)
         {
-            var email = User.Claims.FirstOrDefault(c => c.Type == "Email").Value;
+            var email = getEmail();
+            if (email == null ) { return NotFound(); }
             _addressService.AddAddress(email, addressInput);
             return Ok();
         }
 
-        [Route("{id:int}")]
+        [Route("{addressId:int}")]
         [HttpDelete]
-        public IActionResult DeleteAddress()
+        public IActionResult DeleteAddress(int addressId)
         {
-            /*
-            TODO
-            Deletes an address by id 
-            */
+            var email = getEmail();
+            if (email == null ) { return NotFound(); }
+            _addressService.DeleteAddress(email, addressId);
             return Ok();
         }
     }

@@ -22,12 +22,12 @@ namespace Cryptocop.Software.API.Services.Implementations
 
         public IEnumerable<AddressDto> GetAllAddresses(string email)
         { 
-            throw new System.NotImplementedException();
+            return _addressRepository.GetAllAddresses(email);
         }
 
         public void DeleteAddress(string email, int addressId)
         {
-            throw new System.NotImplementedException();
+            _addressRepository.DeleteAddress(email, addressId);
         }
     }
 }
