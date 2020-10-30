@@ -1,4 +1,6 @@
-﻿namespace Cryptocop.Software.API.Models.DTOs
+﻿using System.Collections.Generic;
+
+namespace Cryptocop.Software.API.Models.DTOs
 {
     public class OrderDto
     {
@@ -14,6 +16,7 @@
         public string CreditCard { get; set; }
         public string OrderDate { get; set; } //TODO: Respresent as 01.01.2020
         public float TotalPrice { get; set; }  
+        public List<OrderItemDto> OrderItems {get; set; }
         
         //TODO: OrderItems (list of OrderItemDto)
     }

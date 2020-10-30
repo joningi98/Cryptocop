@@ -40,7 +40,8 @@ namespace Cryptocop.Software.API.Repositories.Contexts
             // Order
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.user)
-                .WithMany(u => u.orders);
+                .WithMany(u => u.orders)
+                .HasForeignKey(u => u.userId);
 
             // OrderItem
             modelBuilder.Entity<OrderItem>()

@@ -2,9 +2,11 @@
 using Cryptocop.Software.API.Models.InputModels;
 using Cryptocop.Software.API.Services.Interfaces;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cryptocop.Software.API.Controllers
 {
+    [Authorize]
     [Route("api/payments")]
     [ApiController]
     public class PaymentController : ControllerBase

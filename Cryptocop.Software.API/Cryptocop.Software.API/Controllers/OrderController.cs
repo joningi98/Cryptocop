@@ -1,32 +1,49 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Cryptocop.Software.API.Models.InputModels;
+using Cryptocop.Software.API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cryptocop.Software.API.Controllers
 {
+    [Authorize]
     [Route("api/orders")]
     [ApiController]
     public class OrderController : ControllerBase
     {
+        private readonly IOrderService _orderService;
+
+        public OrderController(IOrderService orderService)
+        {
+            _orderService = orderService;
+        }
+
+        private string getEmail()
+        {
+            var email = User.Claims.FirstOrDefault(c => c.Type == "Email").Value;
+            if (email == null) { return null;}
+            else { return email; }
+        }
         [HttpGet]
         public IActionResult GetAllOrders()
         {
-            /*
-            TODO
-            Gets all orders associated with the authenticated user
-            */
+            //TODO: Test
+            var email = getEmail();
+            if (email == null) { return NotFound(); }
 
-            return Ok();
+            return Ok(_orderService.GetOrders(email));
         }
 
         [HttpPost]
-        public IActionResult CreateOrder()
+        public IActionResult CreateOrder(OrderInputModel orderInput)
         {
-            /*
-            TODO
-            Adds a new order associated with the authenticated user, see
-            Models section for reference
-            */
+            //TODO: Test
+            // Get email
+            var email = getEmail();
+            if (email == null) { return NotFound(); }
 
-            return Ok();
+            // Create order 
+            return CreatedAtRoute("", _orderService.CreateNewOrder(email, orderInput));
         }
     }
 }

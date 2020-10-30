@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Cryptocop.Software.API.Models.Entities;
 using Cryptocop.Software.API.Models.InputModels;
 using Cryptocop.Software.API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -36,6 +35,7 @@ namespace Cryptocop.Software.API.Controllers
         [HttpPost]
         public IActionResult CreateAddress(AddressInputModel addressInput)
         {
+            //TODO: Assume the input is correct ? 
             var email = getEmail();
             if (email == null ) { return NotFound(); }
             _addressService.AddAddress(email, addressInput);
@@ -46,6 +46,7 @@ namespace Cryptocop.Software.API.Controllers
         [HttpDelete]
         public IActionResult DeleteAddress(int addressId)
         {
+            //TOOD: ID address does not exist?
             var email = getEmail();
             if (email == null ) { return NotFound(); }
             _addressService.DeleteAddress(email, addressId);
