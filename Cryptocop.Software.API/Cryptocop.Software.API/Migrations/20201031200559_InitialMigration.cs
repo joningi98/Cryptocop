@@ -68,6 +68,7 @@ namespace Cryptocop.Software.API.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Email = table.Column<string>(nullable: true),
                     FullName = table.Column<string>(nullable: true),
+                    StreetName = table.Column<string>(nullable: true),
                     HouseNumber = table.Column<string>(nullable: true),
                     ZipCode = table.Column<string>(nullable: true),
                     Country = table.Column<string>(nullable: true),
@@ -76,7 +77,7 @@ namespace Cryptocop.Software.API.Migrations
                     MaskedCreditCard = table.Column<string>(nullable: true),
                     OrderDate = table.Column<DateTime>(nullable: false),
                     TotalPrice = table.Column<float>(nullable: false),
-                    userId = table.Column<int>(nullable: true)
+                    userId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,7 +87,7 @@ namespace Cryptocop.Software.API.Migrations
                         column: x => x.userId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

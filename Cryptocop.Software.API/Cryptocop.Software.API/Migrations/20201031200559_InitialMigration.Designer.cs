@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Cryptocop.Software.API.Migrations
 {
     [DbContext(typeof(CryptocopDbContext))]
-    [Migration("20201029202257_InitialMigration")]
+    [Migration("20201031200559_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -99,13 +99,16 @@ namespace Cryptocop.Software.API.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<string>("StreetName")
+                        .HasColumnType("text");
+
                     b.Property<float>("TotalPrice")
                         .HasColumnType("real");
 
                     b.Property<string>("ZipCode")
                         .HasColumnType("text");
 
-                    b.Property<int?>("userId")
+                    b.Property<int>("userId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -250,7 +253,9 @@ namespace Cryptocop.Software.API.Migrations
                 {
                     b.HasOne("Cryptocop.Software.API.Models.Entities.User", "user")
                         .WithMany("orders")
-                        .HasForeignKey("userId");
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Cryptocop.Software.API.Models.Entities.OrderItem", b =>

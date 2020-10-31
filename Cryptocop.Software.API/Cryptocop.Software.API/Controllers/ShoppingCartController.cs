@@ -57,11 +57,12 @@ namespace Cryptocop.Software.API.Controllers
         [HttpPatch]
         public IActionResult UpdateShoppingCartItemQuantity([FromBody] ShoppingCartItemInputModel shoppingCartItemInput, int itemId)
         {
+            //TODO: global exeption handler
             var quantity = shoppingCartItemInput.Quantity.GetValueOrDefault();
             //Get email
             var email = getEmail();
             if (email == null) { return NotFound(); }
-            System.Console.WriteLine(quantity);
+            //if (quantity >= 0.01) { return BadRequest(); }
             _shoppingCartService.UpdateCartItemQuantity(email, itemId, quantity);
             return Ok();
         }

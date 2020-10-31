@@ -6,6 +6,7 @@ using Cryptocop.Software.API.Models.DTOs;
 using Cryptocop.Software.API.Models.Entities;
 using Cryptocop.Software.API.Models.InputModels;
 using Cryptocop.Software.API.Repositories.Contexts;
+using Cryptocop.Software.API.Repositories.Helpers;
 using Cryptocop.Software.API.Repositories.Interfaces;
 
 namespace Cryptocop.Software.API.Repositories.Implementations
@@ -13,10 +14,12 @@ namespace Cryptocop.Software.API.Repositories.Implementations
     public class OrderRepository : IOrderRepository
     {
         private readonly CryptocopDbContext _dbContext;
+        private readonly IShoppingCartRepository _shoppingCartRepository;
 
-        public OrderRepository(CryptocopDbContext dbContext)
+        public OrderRepository(CryptocopDbContext dbContext, IShoppingCartRepository shoppingCartRepository)
         {
             _dbContext = dbContext;
+            _shoppingCartRepository = shoppingCartRepository;
         }
 
         private User GetUser(string email)
@@ -40,36 +43,35 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             else { return card; }
         }
 
-        private double totalPrice(int orderId)
+        private double GetTotalPrice(string email)
         {
             // Get orderItems
-            var orders = GetOrderItems(orderId);
+            var cartItems = _shoppingCartRepository.GetCartItems(email);
 
             var totalPrice = 0.0;
-            foreach(OrderItemDto order in orders)
+            foreach(ShoppingCartItemDto item in cartItems)
             {
-                totalPrice += order.TotalPrice;
+                totalPrice += item.TotalPrice;
             }
-
             return totalPrice;
         }
 
-        public List<OrderItemDto> GetOrderItems(int orderId)
+        public List<OrderItemDto> GetAllOrderItem(int orderId)
         {
-            var orders = _dbContext
-                            .OrderItems
-                            .Where(o => o.OrderId == orderId)
-                            .Select(o => new OrderItemDto
-                            {
-                                Id = o.Id,
-                                ProductIdentifier = o.ProductIdentifier,
-                                Quantity = o.Quantity,
-                                UnitPrice = o.UnitPrice,
-                                TotalPrice = o.TotalPrice
-                            }).ToList();
-            return orders;
+            var orderItems = _dbContext
+                                .OrderItems
+                                .Where(i => i.OrderId == orderId)
+                                .Select(i => new OrderItemDto
+                                {
+                                    Id = i.Id,
+                                    ProductIdentifier = i.ProductIdentifier,
+                                    Quantity = i.Quantity,
+                                    UnitPrice = i.UnitPrice,
+                                    TotalPrice = i.TotalPrice
+                                }).ToList();
+            return orderItems;
         }
-        
+
         public IEnumerable<OrderDto> GetOrders(string email)
         {
             //TODO: Test
@@ -93,43 +95,89 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                                 CreditCard = o.MaskedCreditCard,
                                 OrderDate = o.OrderDate.ToString("dd.mm.yyyy"),
                                 TotalPrice = o.TotalPrice,
-                                OrderItems = GetOrderItems(o.Id)
+                                OrderItems = GetAllOrderItem(o.Id)
                             }).ToList();
             return orders;
         }
 
+        private void CreateOrderItems(string email, int orderId)
+        {
+            // Get all the items from the shoppingCart
+            var cartItems = _shoppingCartRepository.GetCartItems(email);
+
+            // Insert all orderitems 
+            foreach(ShoppingCartItemDto item in cartItems)
+            {
+                var entity = new OrderItem
+                {
+                    OrderId = orderId,
+                    ProductIdentifier = item.ProductIdentifier,
+                    Quantity = item.Quantity,
+                    UnitPrice = item.UnitPrice,
+                    TotalPrice = item.TotalPrice
+                };
+
+                _dbContext.OrderItems.Add(entity);
+            }
+
+            // Save changes 
+            _dbContext.SaveChanges();
+        }
+
         public OrderDto CreateNewOrder(string email, OrderInputModel order)
         {
-          /*   // Get user
+            // Get user
             var user = GetUser(email);
+            if (user == null) { throw new System.Exception("User not found");}
 
             // Get address
             var address = GetAddress(order.AddressId);
+            if (address == null) { throw new System.Exception("address not found");}
 
             // Get paymentCard
             var paymentCard = GetPaymentCard(order.PaymentCardId);
+            if (paymentCard == null) { throw new System.Exception("paymentCard not found");}
 
-            var totalPrice = totalPrice(order.)
+            // Get the total price from shopping cart 
+            var totalPrice = GetTotalPrice(email);
 
-            if (user != null && address != null)
+            var entity = new Order
             {
-                var entity = new Order
-                {
-                    Id = _dbContext.Orders.Take()
-                    Email = user.Email,
-                    FullName = user.FullName,
-                    HouseNumber = address.HouseNumber,
-                    ZipCode = address.ZipCode,
-                    Country = address.Country,
-                    City = address.City,
-                    CardHolderName = paymentCard.CardholderName,
-                    MaskedCreditCard = "*" + paymentCard.CardNumber.Substring(12),
-                    OrderDate = DateTime.Now,
-                    TotalPrice = 
-                }
-            } */
-            throw new NotImplementedException();
-            
+                Email = user.Email,
+                FullName = user.FullName,
+                StreetName = address.StreetName,
+                HouseNumber = address.HouseNumber,
+                ZipCode = address.ZipCode,
+                Country = address.Country,
+                City = address.City,
+                CardHolderName = paymentCard.CardholderName,
+                MaskedCreditCard = PaymentCardHelper.MaskPaymentCard(paymentCard.CardNumber),
+                OrderDate = DateTime.Now,
+                TotalPrice = (float) totalPrice
+            };
+
+            // Add the order to db
+            _dbContext.Orders.Add(entity);
+            _dbContext.SaveChanges();
+
+            // Create all the orderItems 
+            CreateOrderItems(email, entity.Id);
+
+            return new OrderDto
+            {
+                Id = entity.Id,
+                Email = entity.Email,
+                FullName = entity.FullName,
+                StreetName = entity.StreetName,
+                HouseNumber = entity.HouseNumber,
+                ZipCode = entity.ZipCode,
+                Country = entity.Country,
+                City = entity.City,
+                CardholderName = entity.CardHolderName,
+                CreditCard = entity.MaskedCreditCard,
+                OrderDate = entity.OrderDate.ToString("dd.mm.yyyy"),
+                TotalPrice = entity.TotalPrice
+            };
         }
     }
 }

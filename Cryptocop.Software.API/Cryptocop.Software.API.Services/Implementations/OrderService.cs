@@ -9,10 +9,12 @@ namespace Cryptocop.Software.API.Services.Implementations
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly IShoppingCartService _shoppingCartService;
 
-        public OrderService(IOrderRepository orderRepository)
+        public OrderService(IOrderRepository orderRepository, IShoppingCartService shoppingCartService)
         {
             _orderRepository = orderRepository;
+            _shoppingCartService = shoppingCartService;
         }
 
         public IEnumerable<OrderDto> GetOrders(string email)
@@ -22,7 +24,10 @@ namespace Cryptocop.Software.API.Services.Implementations
 
         public OrderDto CreateNewOrder(string email, OrderInputModel order)
         {
-            return _orderRepository.CreateNewOrder(email, order);
+            //TODO: Publish message to RabbitMQ with routing key "create-order"
+            var retOrder = _orderRepository.CreateNewOrder(email, order);
+            //_shoppingCartService.DeleteCart(email);
+            return retOrder;
         }
     }
 }
