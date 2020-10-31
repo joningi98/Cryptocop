@@ -5,10 +5,10 @@ namespace Cryptocop.Software.API.Models.DTOs
     public class ExchangeDto
     {
         public string Id { get; set; }
-        public string Name { get; set; }
-        public string Slug { get; set; }
-        public string AssertSymbol { get; set; }
-        public float? PriceUsd { get; set; }
-        public DateTime? LastTrade { get; set; }
+        public string Exchange_name { get; set; }
+        public string Exchange_slug { get; set; }
+        public string Base_asset_symbol { get; set; }
+        public float? Price_usd { get; set; }
+        public DateTime? Last_trade_at { get; set; }
     }
 }

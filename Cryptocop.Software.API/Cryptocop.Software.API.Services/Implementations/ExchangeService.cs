@@ -12,17 +12,15 @@ namespace Cryptocop.Software.API.Services.Implementations
     {
         public async Task<Envelope<ExchangeDto>> GetExchanges(int pageNumber = 1)
         {
-            var requestUri = $"https://data.messari.io/api/v1/markets?page{pageNumber}&fields=id,exchange_id,exchange_name,exchange_slug,base_asset_symbol,price_usd,last_trade_at";
+            var requestUri = $"https://data.messari.io/api/v1/markets?page={pageNumber}&fields=id,exchange_id,exchange_name,exchange_slug,base_asset_symbol,price_usd,last_trade_at";
             HttpClient client = new HttpClient();
            
             HttpResponseMessage response = await client.GetAsync(requestUri);
 
+            //TOOD: See if envelople should be used like this
             var envelope = new Envelope<ExchangeDto>();
 
-            var jslist = await response.DeserializeJsonToList<ExchangeDto>(true);
-            System.Console.WriteLine(jslist);
-
-            envelope.Items = jslist;
+            envelope.Items = await response.DeserializeJsonToList<ExchangeDto>(true);
             envelope.PageNumber = pageNumber;
 
             return envelope;
