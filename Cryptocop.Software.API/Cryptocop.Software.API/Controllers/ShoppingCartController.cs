@@ -1,61 +1,78 @@
-﻿using Cryptocop.Software.API.Models.InputModels;
+﻿using System.Linq;
+using Cryptocop.Software.API.Models.InputModels;
+using Cryptocop.Software.API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cryptocop.Software.API.Controllers
 {
+    [Authorize]
     [Route("api/cart")]
     [ApiController]
     public class ShoppingCartController : ControllerBase
     {
-        // TODO: Setup routes
+        private readonly IShoppingCartService _shoppingCartService;
+
+        public ShoppingCartController(IShoppingCartService shoppingCartService)
+        {
+            _shoppingCartService = shoppingCartService;
+        }
+
+        private string getEmail()
+        {
+            var email = User.Claims.FirstOrDefault(c => c.Type == "Email").Value;
+            if (email == null) { return null;}
+            else { return email; }
+        }
+
         [HttpGet]
         public IActionResult GetCart()
         {
-            /*
-            TODO
-            Gets all items within the shopping cart, see Models section for reference
-            */
-            return Ok();
+            //Get enmail
+            var email = getEmail();
+
+            return Ok(_shoppingCartService.GetCartItems(email));
         }
 
         [HttpPost]
         public IActionResult AddItemToCart([FromBody] ShoppingCartItemInputModel shoppingCartItem)
         {
-            /*
-            TODO
-            Adds an item to the shopping cart, see Models section for reference
-            */
-            return Ok();
+            //Get enmail
+            var email = getEmail();
+
+            return CreatedAtRoute("", _shoppingCartService.AddCartItem(email, shoppingCartItem));
         }
 
-        [Route("{id:int}")]
-        public IActionResult DeleteCartItem()
+        [Route("{itemId:int}")]
+        public IActionResult DeleteCartItem(int itemId)
         {
-            /*
-            TODO
-            Deletes an item from the shopping cart
-            */
-            return Ok();
+            //Get email
+            var email = getEmail();
+            if (email == null) { return NotFound(); }
+            _shoppingCartService.RemoveCartItem(email, itemId);
+            return NoContent();
         }
 
-        [Route("{id:int}")]
+        [Route("{itemId:int}")]
         [HttpPatch]
-        public IActionResult UpdateShoppingCartItemQuantity()
+        public IActionResult UpdateShoppingCartItemQuantity([FromBody] ShoppingCartItemInputModel shoppingCartItemInput, int itemId)
         {
-            /*
-            TODO
-            Updates the quantity for a shopping cart item
-            */
+            var quantity = shoppingCartItemInput.Quantity.GetValueOrDefault();
+            //Get email
+            var email = getEmail();
+            if (email == null) { return NotFound(); }
+            System.Console.WriteLine(quantity);
+            _shoppingCartService.UpdateCartItemQuantity(email, itemId, quantity);
             return Ok();
         }
 
         [HttpDelete]
         public IActionResult DeleteShoppingChart()
         {
-            /*
-            TODO
-            Clears the cart - all items within the cart should be deleted
-            */
+            //Get email
+            var email = getEmail();
+            if (email == null) { return NotFound(); }
+            _shoppingCartService.ClearCart(email);
             return Ok();
         }
     }
