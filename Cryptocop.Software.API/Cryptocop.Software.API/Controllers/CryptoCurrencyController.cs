@@ -21,7 +21,7 @@ namespace Cryptocop.Software.API.Controllers
         [HttpGet]
         public IActionResult GetAllCryptocurrencies()
         {
-            return Ok(_cryptoCurrencyService.GetAvailableCryptocurrencies().Result.ToList());
+            return Ok(_cryptoCurrencyService.GetAvailableCryptocurrencies().Result);
         }
     }
 }

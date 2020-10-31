@@ -18,9 +18,16 @@ namespace Cryptocop.Software.API.Services.Implementations
             HttpClient client = new HttpClient();
            
             HttpResponseMessage response = await client.GetAsync(requestUri);
-            
-                          
-            return await response.DeserializeJsonToList<CryptocurrencyDto>(true);;
+            var result = await response.DeserializeJsonToList<CryptocurrencyDto>(true);
+
+            var cryptos = new List<string>
+            {
+                "BTC",
+                "ETH",
+                "USDT",
+                "XMR"
+            };
+            return result.ToList().Where(x => cryptos.Contains(x.Symbol));
         }
     }
 }
