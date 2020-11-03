@@ -4,7 +4,7 @@
     {
         public static string MaskPaymentCard(string paymentCardNumber)
         {
-            return "*" + paymentCardNumber.Substring(12);
+            return "************" + paymentCardNumber.Substring(12);
         }
     }
 }

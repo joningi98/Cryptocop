@@ -38,6 +38,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
 
         private PaymentCard GetPaymentCard(int paymentCardId)
         {
+            //TODO: If card not found return invaldi
             var card = _dbContext.PaymentCards.FirstOrDefault(c => c.Id == paymentCardId);
             if (card == null) { return null; }
             else { return card; }
@@ -56,7 +57,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             return totalPrice;
         }
 
-        public List<OrderItemDto> GetAllOrderItem(int orderId)
+        public List<OrderItemDto> GetAllOrderItems(int orderId)
         {
             var orderItems = _dbContext
                                 .OrderItems
@@ -78,6 +79,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             // Get user
             var user = GetUser(email);
 
+
             var orders = _dbContext
                             .Orders
                             .Where(o => o.userId == user.Id)
@@ -93,10 +95,14 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                                 City = o.City,
                                 CardholderName = o.CardHolderName,
                                 CreditCard = o.MaskedCreditCard,
-                                OrderDate = o.OrderDate.ToString("dd.mm.yyyy"),
+                                OrderDate = o.OrderDate.ToString("dd'.'MM'.'yyyy"), //TODO: This shit not working wtf??
                                 TotalPrice = o.TotalPrice,
-                                OrderItems = GetAllOrderItem(o.Id)
+                                OrderItems = null
                             }).ToList();
+            foreach(var order in orders)
+            {
+                order.OrderItems = GetAllOrderItems(order.Id);
+            }
             return orders;
         }
 
@@ -128,15 +134,15 @@ namespace Cryptocop.Software.API.Repositories.Implementations
         {
             // Get user
             var user = GetUser(email);
-            if (user == null) { throw new System.Exception("User not found");}
+            if (user == null) { throw new System.Exception("User not found");} //TODO
 
             // Get address
             var address = GetAddress(order.AddressId);
-            if (address == null) { throw new System.Exception("address not found");}
+            if (address == null) { throw new System.Exception("address not found");} //TODO
 
             // Get paymentCard
             var paymentCard = GetPaymentCard(order.PaymentCardId);
-            if (paymentCard == null) { throw new System.Exception("paymentCard not found");}
+            if (paymentCard == null) { throw new System.Exception("paymentCard not found");} //TODO
 
             // Get the total price from shopping cart 
             var totalPrice = GetTotalPrice(email);
@@ -153,7 +159,8 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                 CardHolderName = paymentCard.CardholderName,
                 MaskedCreditCard = PaymentCardHelper.MaskPaymentCard(paymentCard.CardNumber),
                 OrderDate = DateTime.Now,
-                TotalPrice = (float) totalPrice
+                TotalPrice = (float) totalPrice,
+                userId = user.Id
             };
 
             // Add the order to db
@@ -174,9 +181,10 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                 Country = entity.Country,
                 City = entity.City,
                 CardholderName = entity.CardHolderName,
-                CreditCard = entity.MaskedCreditCard,
-                OrderDate = entity.OrderDate.ToString("dd.mm.yyyy"),
-                TotalPrice = entity.TotalPrice
+                CreditCard = entity.MaskedCreditCard, // TODO: fix card masking 
+                OrderDate = entity.OrderDate.ToString("dd.mm.yyyy", CultureInfo.InvariantCulture),//TODO: fix date
+                TotalPrice = entity.TotalPrice,
+                OrderItems = GetAllOrderItems(entity.Id)
             };
         }
     }

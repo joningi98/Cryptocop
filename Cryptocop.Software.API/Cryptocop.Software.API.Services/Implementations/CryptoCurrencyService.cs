@@ -26,9 +26,7 @@ namespace Cryptocop.Software.API.Services.Implementations
                 "XMR"
             };
 
-
             return await response.DeserializeJsonToList<CryptocurrencyDto>(true);
-;
         }
     }
 }
