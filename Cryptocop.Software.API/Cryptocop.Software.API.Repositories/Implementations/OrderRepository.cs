@@ -181,7 +181,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                 Country = entity.Country,
                 City = entity.City,
                 CardholderName = entity.CardHolderName,
-                CreditCard = PaymentCardHelper.MaskPaymentCard(entity.MaskedCreditCard),
+                CreditCard = entity.MaskedCreditCard, //TODO: Should this be masked ? 
                 OrderDate = entity.OrderDate.ToString("dd.mm.yyyy", CultureInfo.InvariantCulture),
                 TotalPrice = entity.TotalPrice,
                 OrderItems = GetAllOrderItems(entity.Id)

@@ -23,9 +23,8 @@ namespace Cryptocop.Software.API.Services.Implementations
                                      routingKey: routingKey,
                                      basicProperties: null,
                                      body: message);
-            
-
-                //Console.WriteLine("RabbitMQ message sent");
+                
+                Console.WriteLine("RabbitMQ message sent");
             }
         }
 
