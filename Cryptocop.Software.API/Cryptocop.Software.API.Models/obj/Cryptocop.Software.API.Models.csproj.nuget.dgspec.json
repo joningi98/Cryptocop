@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jón Ingi\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj": {}
+    "C:\\Users\\JonIngiOlafsson\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jón Ingi\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj": {
+    "C:\\Users\\JonIngiOlafsson\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jón Ingi\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj",
+        "projectUniqueName": "C:\\Users\\JonIngiOlafsson\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj",
         "projectName": "Cryptocop.Software.API.Models",
-        "projectPath": "C:\\Users\\Jón Ingi\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj",
-        "packagesPath": "C:\\Users\\Jón Ingi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jón Ingi\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\obj\\",
+        "projectPath": "C:\\Users\\JonIngiOlafsson\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj",
+        "packagesPath": "C:\\Users\\JonIngiOlafsson\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JonIngiOlafsson\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Jón Ingi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\JonIngiOlafsson\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -56,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

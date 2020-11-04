@@ -12,38 +12,33 @@ namespace Cryptocop.Software.API.Services.Implementations
 {
     public class QueueService : IQueueService, IDisposable
     {
-        private byte[] ObjectToByte(object obj)
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            using(MemoryStream ms = new MemoryStream())
-            {
-                bf.Serialize(ms, obj);
-                return ms.ToArray();
-            }
-        }
-
         public void PublishMessage(string routingKey, object body)
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
             using(var connection = factory.CreateConnection())
             using(var channel = connection.CreateModel())
             {
+                channel.ExchangeDeclare(exchange: routingKey, type: ExchangeType.Fanout);
+
                 channel.QueueDeclare(queue: "email_queue",
                                      durable: true,
                                      exclusive: false,
                                      autoDelete: false,
-                                     arguments: null);
+                                     arguments: null); 
 
-                var bodyJson = JsonConvert.SerializeObject(body, Formatting.Indented); 
-                var message = new Buffer(bodyJson);          
+                channel.QueueDeclare(queue: "payment_queue",
+                                     durable: true,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null); 
+     
                 var properties = channel.CreateBasicProperties();
                 properties.Persistent = true;
 
                 channel.BasicPublish(exchange: "",
-                                     routingKey: routingKey,
-                                     basicProperties: properties,
-                                     body: new Buffer(bodyJson),
-                                     mandatory: false);
+                                     routingKey: "email_queue",
+                                     basicProperties: null,
+                                     body: Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(body)));
                 
                 Console.WriteLine("RabbitMQ message sent");
             }
@@ -51,8 +46,7 @@ namespace Cryptocop.Software.API.Services.Implementations
 
         public void Dispose()
         {
-            // TODO: Dispose the connection and channel
-            throw new NotImplementedException();
+            Console.WriteLine("Dispose");
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
 
             // Check if user is in database 
             var email = _dbContext.Users.FirstOrDefault(u => u.Email == inputModel.Email);
-            if (email != null) { return null; }
+            if (email != null) { return null; } //TODO: Throw error 
 
             // Creating new user 
             var user = new User

@@ -12,3 +12,17 @@ C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.S
 C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.csproj.CopyComplete
 C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.dll
 C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.pdb
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.csprojAssemblyReference.cache
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.AssemblyInfoInputs.cache
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.AssemblyInfo.cs
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.csproj.CoreCompileInputs.cache
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.dll
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.pdb
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\bin\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.deps.json
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\bin\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.dll
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\bin\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.pdb
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\bin\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.dll
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\bin\Debug\netcoreapp3.1\Cryptocop.Software.API.Repositories.dll
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\bin\Debug\netcoreapp3.1\Cryptocop.Software.API.Models.pdb
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\bin\Debug\netcoreapp3.1\Cryptocop.Software.API.Repositories.pdb
+C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API.Services\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.Services.csproj.CopyComplete
