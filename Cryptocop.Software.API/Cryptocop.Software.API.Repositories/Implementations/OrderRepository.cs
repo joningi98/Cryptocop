@@ -94,7 +94,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                                 Country = o.Country,
                                 City = o.City,
                                 CardholderName = o.CardHolderName,
-                                CreditCard = o.MaskedCreditCard,
+                                CreditCard = PaymentCardHelper.MaskPaymentCard(o.MaskedCreditCard),
                                 OrderDate = o.OrderDate.ToString("dd'.'MM'.'yyyy"), //TODO: This shit not working wtf??
                                 TotalPrice = o.TotalPrice,
                                 OrderItems = null
@@ -157,7 +157,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                 Country = address.Country,
                 City = address.City,
                 CardHolderName = paymentCard.CardholderName,
-                MaskedCreditCard = PaymentCardHelper.MaskPaymentCard(paymentCard.CardNumber),
+                MaskedCreditCard = paymentCard.CardNumber, 
                 OrderDate = DateTime.Now,
                 TotalPrice = (float) totalPrice,
                 userId = user.Id
@@ -181,8 +181,8 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                 Country = entity.Country,
                 City = entity.City,
                 CardholderName = entity.CardHolderName,
-                CreditCard = entity.MaskedCreditCard, // TODO: fix card masking 
-                OrderDate = entity.OrderDate.ToString("dd.mm.yyyy", CultureInfo.InvariantCulture),//TODO: fix date
+                CreditCard = PaymentCardHelper.MaskPaymentCard(entity.MaskedCreditCard),
+                OrderDate = entity.OrderDate.ToString("dd.mm.yyyy", CultureInfo.InvariantCulture),
                 TotalPrice = entity.TotalPrice,
                 OrderItems = GetAllOrderItems(entity.Id)
             };
