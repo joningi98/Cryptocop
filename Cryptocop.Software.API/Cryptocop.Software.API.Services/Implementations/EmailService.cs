@@ -21,6 +21,10 @@ namespace Cryptocop.Software.API.Services.Implementations
                                      exclusive: false,
                                      autoDelete: false,
                                      arguments: null); 
+                channel.QueueBind(queue: "email_queue",
+                                  exchange: "cryptocop",
+                                  routingKey: "create-order",
+                                  null);
      
                 var consumer = new EventingBasicConsumer(channel);
                 consumer.Received += (sender, e) => {

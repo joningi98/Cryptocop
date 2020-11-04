@@ -51,19 +51,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JonIngiOlafsson\\.nuget\\packages\\": {}
+    "C:\\Users\\Jón Ingi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JonIngiOlafsson\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj",
+      "projectUniqueName": "C:\\Users\\Jón Ingi\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj",
       "projectName": "Cryptocop.Software.API.Models",
-      "projectPath": "C:\\Users\\JonIngiOlafsson\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj",
-      "packagesPath": "C:\\Users\\JonIngiOlafsson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JonIngiOlafsson\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\obj\\",
+      "projectPath": "C:\\Users\\Jón Ingi\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\Cryptocop.Software.API.Models.csproj",
+      "packagesPath": "C:\\Users\\Jón Ingi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jón Ingi\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\JonIngiOlafsson\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Jón Ingi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -105,7 +105,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

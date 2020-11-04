@@ -35,7 +35,7 @@ namespace Cryptocop.Software.API.Services.Implementations
                 var properties = channel.CreateBasicProperties();
                 properties.Persistent = true;
 
-                channel.BasicPublish(exchange: "",
+                channel.BasicPublish(exchange: "cryptocop",
                                      routingKey: "email_queue",
                                      basicProperties: null,
                                      body: Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(body)));
