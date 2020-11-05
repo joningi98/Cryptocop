@@ -367,3 +367,13 @@ obj/
 /wwwroot/node_modules
 
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore,csharp
+*.xml
+*.xml
+*.cache
+*.dll
+*.pdb
+*.dll
+*.pdb
+Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.dll
+Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.pdb
+*.dll

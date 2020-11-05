@@ -22,7 +22,7 @@ namespace Cryptocop.Software.API.Services.Implementations
 
             envelope.Items = await response.DeserializeJsonToList<ExchangeDto>(true);
             envelope.PageNumber = pageNumber;
-
+            //TODO: pageNumber???
             return envelope;
 
         }

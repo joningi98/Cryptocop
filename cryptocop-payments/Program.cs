@@ -37,7 +37,6 @@ namespace cryptocop_payments
                 var message = Encoding.UTF8.GetString(body);
                 var json = JObject.Parse(message);
                 
-                Console.WriteLine(json["CreditCard"]?.ToString());
                 CreditCardValidator.ValidateCard(json["CreditCard"]?.ToString());
             };
 
