@@ -1,4 +1,5 @@
 using System.Reflection;
+using Cryptocop.Software.API.ExceptionHandlerExtensions;
 using Cryptocop.Software.API.Repositories.Contexts;
 using Cryptocop.Software.API.Repositories.Implementations;
 using Cryptocop.Software.API.Repositories.Interfaces;
@@ -90,6 +91,8 @@ namespace Cryptocop.Software.API
             app.UseRouting();
 
             app.UseAuthentication();
+            
+            app.UseGlobalExceptionHandler();
 
             app.UseAuthorization();
 

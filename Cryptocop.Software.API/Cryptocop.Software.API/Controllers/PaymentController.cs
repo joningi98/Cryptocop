@@ -18,18 +18,17 @@ namespace Cryptocop.Software.API.Controllers
             _paymentService = paymentService;
         }
 
-        private string getEmail()
+        private string GetEmail()
         {
             var email = User.Claims.FirstOrDefault(c => c.Type == "Email").Value;
-            if (email == null) { return null;}
-            else { return email; }
+            return email;
         }
 
         [HttpGet]
         public IActionResult GetAllPaymentCard()
         {
             // Get email
-            var email = getEmail();
+            var email = GetEmail();
             if (email == null) { return NotFound(); }
 
             // Get all cards
@@ -39,9 +38,9 @@ namespace Cryptocop.Software.API.Controllers
         [HttpPost]
         public IActionResult CreatePaymentCard([FromBody] PaymentCardInputModel paymentCard)
         {
-            //TODO: If two cardnumbers are the same ?
+            //TODO: If two cardNumbers are the same ?
             // Get email
-            var email = getEmail();
+            var email = GetEmail();
             if (email == null) { return NotFound(); }
 
             System.Console.WriteLine(paymentCard);

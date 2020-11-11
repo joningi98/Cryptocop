@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Cryptocop.Software.API.Models.Exceptions;
 using Cryptocop.Software.API.Models.DTOs;
 using Cryptocop.Software.API.Models.Entities;
 using Cryptocop.Software.API.Models.InputModels;
 using Cryptocop.Software.API.Repositories.Contexts;
-using Cryptocop.Software.API.Repositories.Helpers;
 using Cryptocop.Software.API.Repositories.Interfaces;
 
 namespace Cryptocop.Software.API.Repositories.Implementations
@@ -25,23 +25,22 @@ namespace Cryptocop.Software.API.Repositories.Implementations
         private User GetUser(string email)
         {
             var user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
-            if (user == null) { throw new System.Exception("User not found"); }
-            else { return user; }
+            if (user == null) { throw new ResourceNotFoundException("User not found"); }
+            return user; 
         }
 
         private Address GetAddress(int addressId)
         {
             var address = _dbContext.Addresses.FirstOrDefault(a => a.Id == addressId);
-            if (address == null) { return null; }
-            else { return address; }
+            if (address == null) { throw new ResourceNotFoundException("Address not found"); }
+            return address; 
         }
 
         private PaymentCard GetPaymentCard(int paymentCardId)
         {
-            //TODO: If card not found return invaldi
             var card = _dbContext.PaymentCards.FirstOrDefault(c => c.Id == paymentCardId);
-            if (card == null) { return null; }
-            else { return card; }
+            if (card == null) { throw new ResourceNotFoundException("PaymentCard not found"); }
+            return card;
         }
 
         private double GetTotalPrice(string email)
@@ -57,7 +56,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             return totalPrice;
         }
 
-        public List<OrderItemDto> GetAllOrderItems(int orderId)
+        private List<OrderItemDto> GetAllOrderItems(int orderId)
         {
             var orderItems = _dbContext
                                 .OrderItems
@@ -75,7 +74,6 @@ namespace Cryptocop.Software.API.Repositories.Implementations
 
         public IEnumerable<OrderDto> GetOrders(string email)
         {
-            //TODO: Test
             // Get user
             var user = GetUser(email);
 
@@ -94,8 +92,8 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                                 Country = o.Country,
                                 City = o.City,
                                 CardholderName = o.CardHolderName,
-                                CreditCard = PaymentCardHelper.MaskPaymentCard(o.MaskedCreditCard),
-                                OrderDate = o.OrderDate.ToString("dd'.'MM'.'yyyy"), //TODO: This shit not working wtf??
+                                CreditCard = o.MaskedCreditCard,
+                                OrderDate = o.OrderDate.ToString("dd'.'MM'.'yyyy"),
                                 TotalPrice = o.TotalPrice,
                                 OrderItems = null
                             }).ToList();
@@ -112,7 +110,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             var cartItems = _shoppingCartRepository.GetCartItems(email);
 
             // Insert all orderitems 
-            foreach(ShoppingCartItemDto item in cartItems)
+            foreach(var item in cartItems)
             {
                 var entity = new OrderItem
                 {
@@ -134,15 +132,15 @@ namespace Cryptocop.Software.API.Repositories.Implementations
         {
             // Get user
             var user = GetUser(email);
-            if (user == null) { throw new System.Exception("User not found");} //TODO
+            if (user == null) { throw new ResourceNotFoundException("PaymentCard not found"); } 
 
             // Get address
             var address = GetAddress(order.AddressId);
-            if (address == null) { throw new System.Exception("address not found");} //TODO
+            if (address == null) { throw new ResourceNotFoundException("address not found"); } 
 
             // Get paymentCard
             var paymentCard = GetPaymentCard(order.PaymentCardId);
-            if (paymentCard == null) { throw new System.Exception("paymentCard not found");} //TODO
+            if (paymentCard == null) { throw new ResourceNotFoundException("paymentCard not found"); } 
 
             // Get the total price from shopping cart 
             var totalPrice = GetTotalPrice(email);
@@ -181,7 +179,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                 Country = entity.Country,
                 City = entity.City,
                 CardholderName = entity.CardHolderName,
-                CreditCard = entity.MaskedCreditCard, //TODO: Should this be masked ? 
+                CreditCard = entity.MaskedCreditCard, 
                 OrderDate = entity.OrderDate.ToString("dd.mm.yyyy", CultureInfo.InvariantCulture),
                 TotalPrice = entity.TotalPrice,
                 OrderItems = GetAllOrderItems(entity.Id)

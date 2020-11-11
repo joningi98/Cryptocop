@@ -18,18 +18,17 @@ namespace Cryptocop.Software.API.Controllers
             _shoppingCartService = shoppingCartService;
         }
 
-        private string getEmail()
+        private string GetEmail()
         {
             var email = User.Claims.FirstOrDefault(c => c.Type == "Email").Value;
-            if (email == null) { return null;}
-            else { return email; }
+            return email;
         }
 
         [HttpGet]
         public IActionResult GetCart()
         {
-            //Get enmail
-            var email = getEmail();
+            //Get email
+            var email = GetEmail();
 
             return Ok(_shoppingCartService.GetCartItems(email));
         }
@@ -37,8 +36,8 @@ namespace Cryptocop.Software.API.Controllers
         [HttpPost]
         public IActionResult AddItemToCart([FromBody] ShoppingCartItemInputModel shoppingCartItem)
         {
-            //Get enmail
-            var email = getEmail();
+            //Get email
+            var email = GetEmail();
 
             return CreatedAtRoute("", _shoppingCartService.AddCartItem(email, shoppingCartItem));
         }
@@ -47,7 +46,7 @@ namespace Cryptocop.Software.API.Controllers
         public IActionResult DeleteCartItem(int itemId)
         {
             //Get email
-            var email = getEmail();
+            var email = GetEmail();
             if (email == null) { return NotFound(); }
             _shoppingCartService.RemoveCartItem(email, itemId);
             return NoContent();
@@ -57,12 +56,11 @@ namespace Cryptocop.Software.API.Controllers
         [HttpPatch]
         public IActionResult UpdateShoppingCartItemQuantity([FromBody] ShoppingCartItemInputModel shoppingCartItemInput, int itemId)
         {
-            //TODO: global exeption handler
+            if (!ModelState.IsValid) { return BadRequest(); }
             var quantity = shoppingCartItemInput.Quantity.GetValueOrDefault();
             //Get email
-            var email = getEmail();
+            var email = GetEmail();
             if (email == null) { return NotFound(); }
-            //if (quantity >= 0.01) { return BadRequest(); }
             _shoppingCartService.UpdateCartItemQuantity(email, itemId, quantity);
             return Ok();
         }
@@ -71,7 +69,7 @@ namespace Cryptocop.Software.API.Controllers
         public IActionResult DeleteShoppingChart()
         {
             //Get email
-            var email = getEmail();
+            var email = GetEmail();
             if (email == null) { return NotFound(); }
             _shoppingCartService.ClearCart(email);
             return Ok();

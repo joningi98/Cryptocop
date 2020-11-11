@@ -18,17 +18,15 @@ namespace Cryptocop.Software.API.Controllers
             _orderService = orderService;
         }
 
-        private string getEmail()
+        private string GetEmail()
         {
             var email = User.Claims.FirstOrDefault(c => c.Type == "Email").Value;
-            if (email == null) { return null;}
-            else { return email; }
+            return email;
         }
         [HttpGet]
         public IActionResult GetAllOrders()
         {
-            //TODO: Test
-            var email = getEmail();
+            var email = GetEmail();
             if (email == null) { return NotFound(); }
 
             return Ok(_orderService.GetOrders(email));
@@ -37,9 +35,8 @@ namespace Cryptocop.Software.API.Controllers
         [HttpPost]
         public IActionResult CreateOrder(OrderInputModel orderInput)
         {
-            //TODO: Test
             // Get email
-            var email = getEmail();
+            var email = GetEmail();
             if (email == null) { return NotFound(); }
 
             // Create order 

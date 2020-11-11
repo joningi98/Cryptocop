@@ -1,13 +1,12 @@
-﻿using System;
+﻿
 using System.Linq;
-using System.Text;
 using Cryptocop.Software.API.Models.DTOs;
 using Cryptocop.Software.API.Models.Entities;
+using Cryptocop.Software.API.Models.Exceptions;
 using Cryptocop.Software.API.Models.InputModels;
 using Cryptocop.Software.API.Repositories.Contexts;
 using Cryptocop.Software.API.Repositories.Helpers;
 using Cryptocop.Software.API.Repositories.Interfaces;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace Cryptocop.Software.API.Repositories.Implementations
 {
@@ -28,7 +27,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
 
             // Check if user is in database 
             var email = _dbContext.Users.FirstOrDefault(u => u.Email == inputModel.Email);
-            if (email != null) { return null; } //TODO: Throw error 
+            if (email != null) { throw new ConflictException("User already exists");} 
 
             // Creating new user 
             var user = new User
@@ -58,8 +57,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             
             // If user is not in the db 
             if (user == null) { return null; }
-
-            //TODO: Create token from JwtRepo ??
+            
             var token = new JwtToken();
             _dbContext.Add(token);
             _dbContext.SaveChanges();

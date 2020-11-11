@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Cryptocop.Software.API.Models.Exceptions;
 using Cryptocop.Software.API.Models.DTOs;
 using Cryptocop.Software.API.Models.Entities;
 using Cryptocop.Software.API.Models.InputModels;
@@ -20,8 +21,8 @@ namespace Cryptocop.Software.API.Repositories.Implementations
         private User GetUser(string email)
         {
             var user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
-            if (user == null) { throw new System.Exception("User not found"); }
-            else { return user; }
+            if (user == null) { throw new ResourceNotFoundException("User not found");}
+            return user;
         }
 
         public void AddAddress(string email, AddressInputModel address)
@@ -49,7 +50,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             // Get User 
             var user = GetUser(email);
 
-            // Get Addressses
+            // Get Addresses
             var addresses = _dbContext
                                 .Addresses
                                 .Where(a => a.UserId == user.Id)
@@ -69,7 +70,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
         {
             var user = GetUser(email);
             var address = _dbContext.Addresses.FirstOrDefault(a => a.UserId == user.Id && a.Id == addressId);
-            if (address == null) { throw new System.Exception("Address not found!"); } //TODO: Retrun something ?
+            if (address == null) { throw new ResourceNotFoundException("Address not found"); }
 
             _dbContext.Addresses.Remove(address);
             _dbContext.SaveChanges();

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Cryptocop.Software.API.Models.Exceptions;
 using Cryptocop.Software.API.Models.InputModels;
 using Cryptocop.Software.API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -25,8 +26,10 @@ namespace Cryptocop.Software.API.Controllers
         {
             var user = _accountService.CreateUser(register);
 
-            // If user already exists 
-            if (user == null) { return StatusCode(401); }
+            if (register.Password != register.PasswordConfirmation)
+            {
+                throw new ConflictException("Password do not match");
+            }
 
             // Return the user
             return Ok(_tokenService.GenerateJwtToken(user));

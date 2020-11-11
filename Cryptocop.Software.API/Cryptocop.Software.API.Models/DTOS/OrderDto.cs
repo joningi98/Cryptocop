@@ -14,10 +14,8 @@ namespace Cryptocop.Software.API.Models.DTOs
         public string City { get; set; }
         public string CardholderName { get; set; }
         public string CreditCard { get; set; }
-        public string OrderDate { get; set; } //TODO: Respresent as 01.01.2020
+        public string OrderDate { get; set; }
         public float TotalPrice { get; set; }  
         public List<OrderItemDto> OrderItems {get; set; }
-        
-        //TODO: OrderItems (list of OrderItemDto)
     }
 }

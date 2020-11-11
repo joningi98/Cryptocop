@@ -2,6 +2,7 @@
 using System.Linq;
 using Cryptocop.Software.API.Models.DTOs;
 using Cryptocop.Software.API.Models.Entities;
+using Cryptocop.Software.API.Models.Exceptions;
 using Cryptocop.Software.API.Models.InputModels;
 using Cryptocop.Software.API.Repositories.Contexts;
 using Cryptocop.Software.API.Repositories.Helpers;
@@ -20,8 +21,8 @@ namespace Cryptocop.Software.API.Repositories.Implementations
         private User GetUser(string email)
         {
             var user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
-            if (user == null) { throw new System.Exception("User not found"); }
-            else { return user; }
+            if (user == null) { throw new ResourceNotFoundException("User not found"); }
+            return user;
         }
         public void AddPaymentCard(string email, PaymentCardInputModel paymentCard)
         {
@@ -33,7 +34,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             {
                 UserId = user.Id,
                 CardholderName = paymentCard.CardholderName,
-                CardNumber = paymentCard.CardNumber,
+                CardNumber = PaymentCardHelper.MaskPaymentCard(paymentCard.CardNumber),
                 Month = paymentCard.Month,
                 Year = paymentCard.Year
             };

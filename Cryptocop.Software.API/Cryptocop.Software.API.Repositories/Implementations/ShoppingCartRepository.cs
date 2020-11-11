@@ -5,6 +5,7 @@ using Cryptocop.Software.API.Repositories.Interfaces;
 using Cryptocop.Software.API.Repositories.Contexts;
 using System.Linq;
 using Cryptocop.Software.API.Models.Entities;
+using Cryptocop.Software.API.Models.Exceptions;
 
 namespace Cryptocop.Software.API.Repositories.Implementations
 {
@@ -20,20 +21,18 @@ namespace Cryptocop.Software.API.Repositories.Implementations
         private User GetUser(string email)
         {
             var user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
-            if (user == null) { throw new System.Exception("User not found"); }
-            else { return user; }
+            if (user == null) { throw new ResourceNotFoundException("User not found"); }
+            return user; 
         }
 
         private ShoppingCart GetShoppingCart(int userId)
         {
             var shoppingCart = _dbContext.ShoppingCarts.FirstOrDefault(s => s.UserId == userId);
-            if (shoppingCart == null) { return null; } //TODO: RESTful??
-            else { return shoppingCart; }
+            return shoppingCart;
         }
 
         public IEnumerable<ShoppingCartItemDto> GetCartItems(string email)
         {
-            //TODO: Test
             // Get user
             var user = GetUser(email);
 
@@ -99,7 +98,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             var cartItem = _dbContext.ShoppingCartItems.FirstOrDefault(i => i.Id == itemId && i.ShoppingCartId == shoppingCart.Id);
 
             // Remove Item & Save
-            _dbContext.Remove(cartItem);
+            _dbContext.ShoppingCartItems.Remove(cartItem);
             _dbContext.SaveChanges();
         }
 
@@ -128,14 +127,13 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             var shoppingCart = GetShoppingCart(user.Id);
 
             // Get query to delete & save changes
-            var delteQuery = _dbContext.ShoppingCartItems.Where(i => i.ShoppingCartId == shoppingCart.Id);
-            _dbContext.ShoppingCartItems.RemoveRange(delteQuery);
+            var deleteQuery = _dbContext.ShoppingCartItems.Where(i => i.ShoppingCartId == shoppingCart.Id);
+            _dbContext.ShoppingCartItems.RemoveRange(deleteQuery);
             _dbContext.SaveChanges();
         }
 
         public void DeleteCart(string email)
         {
-            //TODO: Test
             //Get user 
             var user = GetUser(email);
 
@@ -145,7 +143,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             // Delete all items in cart
             ClearCart(email);
 
-            // Get cart to delte
+            // Get cart to delete
             var cart = _dbContext.ShoppingCarts.FirstOrDefault(c => c.UserId == user.Id);
 
             // Delete & Save

@@ -26,7 +26,6 @@ namespace Cryptocop.Software.API.Services.Implementations
 
         public OrderDto CreateNewOrder(string email, OrderInputModel order)
         {
-            //TODO: Publish message to RabbitMQ with routing key "create-order"
             var routingKey = "create-order";
             var retOrder = _orderRepository.CreateNewOrder(email, order);
             _queueService.PublishMessage(routingKey, retOrder);

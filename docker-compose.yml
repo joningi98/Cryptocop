@@ -1,0 +1,20 @@
+version: "3"
+services:
+  cryptocop-api:
+    build: ./Cryptocop.Software.API
+    container_name: cryptocop-api
+    ports:
+    - "5000:5000"
+    networks:
+      - "cryptocop-network"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:5000;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=SECRETPASSWORD
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    volumes:
+      - ~/.aspnet/https:/https:ro
+
+networks:
+  cryptocop-network:
+    driver: bridge
