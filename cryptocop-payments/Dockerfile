@@ -1,11 +1,11 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1
+FROM python:3.8
 
-LABEL maintainer="Jon Ingi Olafsson"
+WORKDIR .
 
-COPY . /app
-WORKDIR /app
+COPY requirements.txt .
 
-RUN dotnet restore
-RUN dotnet publish -o out
-WORKDIR /app/out
-ENTRYPOINT [ "dotnet", "cryptocop-payments.dll" ]
+RUN pip install -r requirements.txt
+
+COPY . /
+
+CMD [ "python", "./paymentService.py" ]

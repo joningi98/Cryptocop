@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Cryptocop.Software.API.Models.DTOs;
 using Cryptocop.Software.API.Models.Entities;
-using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace Cryptocop.Software.API.Mappings
 {

@@ -23,77 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be1e47ed-6f1e-4fe1-901f-3038a3b3171c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/Entities/CryptoCurrencyItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/Entities/ExchangeItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.sln.DotSettings.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/Mappings/MappingProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/paymentService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.idea.Cryptocop.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.idea.Cryptocop.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/DTOS/CryptocurrencyDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/DTOS/CryptocurrencyDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/DTOS/ExchangeDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/DTOS/ExchangeDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/InputModels/RegisterInputModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/InputModels/RegisterInputModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Models/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Repositories/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Cryptocop.Software.API.Services.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Cryptocop.Software.API.Services.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Implementations/CryptoCurrencyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Implementations/CryptoCurrencyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Implementations/ExchangeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Implementations/ExchangeService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Implementations/OrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Implementations/OrderService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Implementations/QueueService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Implementations/QueueService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Implementations/ShoppingCartService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/Implementations/ShoppingCartService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Cryptocop.Software.API.Services.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Cryptocop.Software.API.Services.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API.Services/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/Controllers/PaymentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/Controllers/PaymentController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Models.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Repositories.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.Services.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/bin/Debug/netcoreapp3.1/Cryptocop.Software.API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Cryptocop.Software.API.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Cryptocop.Software.API.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/Debug/netcoreapp3.1/Cryptocop.Software.API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cryptocop-emails/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptocop-emails/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cryptocop-emails/emailService.py" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptocop-emails/emailService.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cryptocop-emails/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptocop-emails/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.cryptocop-payments.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cryptocop-payments.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/Mappings/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Cryptocop.Software.API/Cryptocop.Software.API/Mappings/MappingProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.cryptocop-payments.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cryptocop-payments.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreditCardValidator.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cryptocop-payments.csproj" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,12 +52,15 @@
     </option>
   </component>
   <component name="ProjectId" id="1jqTKjSPLFX9LVS1fEh0J2LFS4v" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -162,7 +104,7 @@
       <updated>1604530559687</updated>
       <workItem from="1604530562903" duration="808000" />
       <workItem from="1604531394489" duration="1670000" />
-      <workItem from="1605187064275" duration="7714000" />
+      <workItem from="1605187064275" duration="8810000" />
     </task>
     <servers />
   </component>
@@ -182,6 +124,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
