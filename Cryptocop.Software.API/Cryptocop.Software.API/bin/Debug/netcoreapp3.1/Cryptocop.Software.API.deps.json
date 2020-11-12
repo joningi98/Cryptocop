@@ -224,7 +224,7 @@
           "System.ObjectModel": "4.1.2.0",
           "System.Reflection.DispatchProxy": "4.0.6.0",
           "System.Reflection": "4.2.2.0",
-          "System.Reflection.Emit": "4.1.2.0",
+          "System.Reflection.Emit.Reference": "4.1.2.0",
           "System.Reflection.Emit.ILGeneration": "4.1.1.0",
           "System.Reflection.Emit.Lightweight": "4.1.1.0",
           "System.Reflection.Extensions": "4.1.2.0",
@@ -304,6 +304,21 @@
         },
         "compile": {
           "Cryptocop.Software.API.dll": {}
+        }
+      },
+      "AutoMapper/10.1.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Reflection.Emit": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.1.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.2.0": {
@@ -1125,6 +1140,7 @@
       "System.IO.Pipelines/4.5.2": {},
       "System.Memory/4.5.4": {},
       "System.Numerics.Vectors/4.5.0": {},
+      "System.Reflection.Emit/4.7.0": {},
       "System.Reflection.Metadata/1.6.0": {},
       "System.Runtime.CompilerServices.Unsafe/4.6.0": {},
       "System.Security.Cryptography.Cng/4.5.0": {},
@@ -1176,6 +1192,7 @@
       },
       "Cryptocop.Software.API.Services/1.0.0": {
         "dependencies": {
+          "AutoMapper": "10.1.1",
           "Cryptocop.Software.API.Models": "1.0.0",
           "Cryptocop.Software.API.Repositories": "1.0.0",
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "3.1.8",
@@ -2343,7 +2360,7 @@
         },
         "compileOnly": true
       },
-      "System.Reflection.Emit/4.1.2.0": {
+      "System.Reflection.Emit.Reference/4.1.2.0": {
         "compile": {
           "System.Reflection.Emit.dll": {}
         },
@@ -2794,6 +2811,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/10.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uMgbqOdu9ZG5cIOty0C85hzzayBH2i9BthnS5FlMqKtMSHDv4ts81a2jS1VFaDBVhlBeIqJ/kQKjQY95BZde9w==",
+      "path": "automapper/10.1.1",
+      "hashPath": "automapper.10.1.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore/2.2.0": {
       "type": "package",
@@ -3382,6 +3406,13 @@
       "sha512": "sha512-QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
       "path": "system.numerics.vectors/4.5.0",
       "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
+    },
+    "System.Reflection.Emit/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
+      "path": "system.reflection.emit/4.7.0",
+      "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
     },
     "System.Reflection.Metadata/1.6.0": {
       "type": "package",
@@ -4407,7 +4438,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Reflection.Emit/4.1.2.0": {
+    "System.Reflection.Emit.Reference/4.1.2.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

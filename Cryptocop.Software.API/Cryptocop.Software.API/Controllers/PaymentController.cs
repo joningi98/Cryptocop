@@ -38,7 +38,6 @@ namespace Cryptocop.Software.API.Controllers
         [HttpPost]
         public IActionResult CreatePaymentCard([FromBody] PaymentCardInputModel paymentCard)
         {
-            //TODO: If two cardNumbers are the same ?
             // Get email
             var email = GetEmail();
             if (email == null) { return NotFound(); }

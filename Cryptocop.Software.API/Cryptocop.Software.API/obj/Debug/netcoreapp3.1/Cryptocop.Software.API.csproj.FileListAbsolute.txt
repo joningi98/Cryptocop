@@ -126,3 +126,4 @@ C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Crypt
 C:\Users\JonIngiOlafsson\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API\obj\Debug\netcoreapp3.1\Cryptocop.Software.API.genruntimeconfig.cache
 C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
+C:\Users\Jón Ingi\Documents\GitHub\Cryptocop\Cryptocop.Software.API\Cryptocop.Software.API\bin\Debug\netcoreapp3.1\AutoMapper.dll

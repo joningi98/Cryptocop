@@ -1,5 +1,7 @@
 using System.Reflection;
+using AutoMapper;
 using Cryptocop.Software.API.ExceptionHandlerExtensions;
+using Cryptocop.Software.API.Mappings;
 using Cryptocop.Software.API.Repositories.Contexts;
 using Cryptocop.Software.API.Repositories.Implementations;
 using Cryptocop.Software.API.Repositories.Interfaces;
@@ -76,6 +78,15 @@ namespace Cryptocop.Software.API
             services.AddTransient<IShoppingCartRepository, ShoppingCartRepository>();
             services.AddTransient<ITokenRepository, TokenRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            
+            var mappingProfile = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            var mapper = mappingProfile.CreateMapper();
+            services.AddSingleton(mapper);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

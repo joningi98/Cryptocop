@@ -15,11 +15,12 @@ namespace Cryptocop.Software.API.Models.InputModels
 
         [Required]
         [MinLength(8)]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [Required]
         [MinLength(8)]
-        //TODO: Must be the same value as the property Password
+        [Compare("Password", ErrorMessage = "The passwords do not match.")]
         public string PasswordConfirmation { get; set; }
     }
 }

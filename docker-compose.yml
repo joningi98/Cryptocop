@@ -1,20 +1,54 @@
 version: "3"
 services:
-  cryptocop-api:
-    build: ./Cryptocop.Software.API
-    container_name: cryptocop-api
+  cryptocop_rabbit:
+    container_name: "cryptocop_rabbit"
+    hostname: "cryptocop_rabbit"
+    image: rabbitmq:3-management
     ports:
-    - "5000:5000"
+      - "15672:15672"
+      - "5672:5672"
     networks:
-      - "cryptocop-network"
+      - "cryptocop_network"
+  
+  email_service:
+    build: ./cryptocop-emails
+    restart: on-failure
+    links:
+      - "cryptocop_rabbit"
+    depends_on:
+      - "cryptocop_rabbit"
+    container_name: "email_service"
+    networks:
+      - "cryptocop_network"
+      
+  payment_service:
+    build: ./cryptocop-payments
+    restart: on-failure
+    links:
+      - "cryptocop_rabbit"
+    depends_on:
+      - "cryptocop_rabbit"
+    container_name: "payment_service"
+    networks:
+      - "cryptocop_network"
+        
+  cryptocop_api:
+    build: ./Cryptocop.Software.API
+    container_name: "cryptocop_api"
+    links:
+      - "cryptocop_rabbit"
+    ports:
+      - "5000:5000"
+    networks:
+      - "cryptocop_network"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:5000;http://+:80
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=SECRETPASSWORD
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=helloworld
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
     volumes:
       - ~/.aspnet/https:/https:ro
 
 networks:
-  cryptocop-network:
+  cryptocop_network:
     driver: bridge

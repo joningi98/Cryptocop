@@ -32,7 +32,7 @@ namespace Cryptocop.Software.API.Services.Implementations
 
             var cryptoCoin = cryptos.Find(c => c.Symbol == shoppingCartItemItem.ProductIdentifier.ToUpper());
 
-            var addItem = new Task(() => _shoppingCartRepository.AddCartItem(email, shoppingCartItemItem, cryptoCoin.Price_usd));
+            var addItem = new Task(() => _shoppingCartRepository.AddCartItem(email, shoppingCartItemItem, cryptoCoin.PriceInUsd));
             addItem.Start();
             addItem.Wait();
             return addItem;

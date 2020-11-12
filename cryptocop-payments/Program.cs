@@ -15,7 +15,7 @@ namespace cryptocop_payments
             const string routingKey = "create-order";
             const string paymentQueue = "payment-queue";
 
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            var factory = new ConnectionFactory(){ HostName = "cryptocop_rabbit" };
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
             

@@ -26,7 +26,7 @@ namespace Cryptocop.Software.API.Services.Implementations
 
         public OrderDto CreateNewOrder(string email, OrderInputModel order)
         {
-            var routingKey = "create-order";
+            const string routingKey = "create-order";
             var retOrder = _orderRepository.CreateNewOrder(email, order);
             _queueService.PublishMessage(routingKey, retOrder);
             //_shoppingCartService.DeleteCart(email);

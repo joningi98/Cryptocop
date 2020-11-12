@@ -1,11 +1,11 @@
 FROM python:3.8
 
-WORKDIR . /
+WORKDIR .
 
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY . /app
+COPY . /
 
 CMD [ "python", "./emailService.py" ]

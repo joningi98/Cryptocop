@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DBGFKGLKJ/minYmWcCs2vJdo/K90+n1ndYnCIFkqmUYz6ZkjTaeTe2vKPZAKPtlOwAWegBdCPdVyDLDVgAE4Hw==",
+  "dgSpecHash": "H9rOFs82IHYrN8ihuLIfTN2ebUfA7U1sF8QGgsfw0obQkjWa12FJj5In5CMTaDkyKtloYV98knrN6e96D8LK3w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jón Ingi\\Documents\\GitHub\\Cryptocop\\Cryptocop.Software.API\\Cryptocop.Software.API.Services\\Cryptocop.Software.API.Services.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jón Ingi\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
@@ -33,7 +34,7 @@
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
-    "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.9\\microsoft.entityframeworkcore.3.1.9.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.9\\microsoft.entityframeworkcore.abstractions.3.1.9.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.9\\microsoft.entityframeworkcore.analyzers.3.1.9.nupkg.sha512",
@@ -81,6 +82,7 @@
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\system.io.pipelines\\4.5.2\\system.io.pipelines.4.5.2.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Jón Ingi\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
     "C:\\Users\\Jón Ingi\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",

@@ -2,7 +2,7 @@
 import requests
 import json
 
-connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+connection = pika.BlockingConnection(pika.ConnectionParameters('cryptocop_rabbit'))
 channel = connection.channel()
 exchangeKey = 'cryptocop'
 routingKey = 'create-order'
