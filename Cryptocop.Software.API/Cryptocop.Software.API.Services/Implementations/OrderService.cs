@@ -29,7 +29,7 @@ namespace Cryptocop.Software.API.Services.Implementations
             const string routingKey = "create-order";
             var retOrder = _orderRepository.CreateNewOrder(email, order);
             _queueService.PublishMessage(routingKey, retOrder);
-            //_shoppingCartService.DeleteCart(email);
+            _shoppingCartService.DeleteCart(email);
             return retOrder;
         }
     }

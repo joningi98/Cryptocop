@@ -17,7 +17,7 @@ namespace Cryptocop.Software.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllExhanges(int pageNumber)
+        public IActionResult GetAllExchanges(int pageNumber)
         {
             return Ok(_exchangeService.GetExchanges(pageNumber).Result);
         }

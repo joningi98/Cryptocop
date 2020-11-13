@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Linq;
 using Cryptocop.Software.API.Models.DTOs;
 using Cryptocop.Software.API.Models.Entities;
@@ -51,12 +52,16 @@ namespace Cryptocop.Software.API.Repositories.Implementations
 
         public UserDto AuthenticateUser(LoginInputModel loginInputModel)
         {
+            var userInDb = _dbContext.Users.FirstOrDefault(u => u.Email == loginInputModel.Email);
+            
+            if (userInDb == null) { throw new ResourceNotFoundException(); }
+            
             var user = _dbContext.Users.FirstOrDefault(u =>
                 u.Email == loginInputModel.Email && 
                 u.HashedPassword == HashingHelper.HashPassword(loginInputModel.Password));
             
             // If user is not in the db 
-            if (user == null) { return null; }
+            if (user == null) { throw new UnauthorizedAccessException();}
             
             var token = new JwtToken();
             _dbContext.Add(token);

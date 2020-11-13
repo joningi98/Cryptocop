@@ -1,4 +1,6 @@
-﻿namespace Cryptocop.Software.API.Repositories.Helpers
+﻿using System.Text.RegularExpressions;
+
+namespace Cryptocop.Software.API.Repositories.Helpers
 {
     public class PaymentCardHelper
     {

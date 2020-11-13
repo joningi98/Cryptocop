@@ -28,7 +28,18 @@ namespace Cryptocop.Software.API.Repositories.Implementations
         private ShoppingCart GetShoppingCart(int userId)
         {
             var shoppingCart = _dbContext.ShoppingCarts.FirstOrDefault(s => s.UserId == userId);
-            return shoppingCart;
+
+            // If shoppingCart does not exist then create one 
+            if (shoppingCart != null) return shoppingCart;
+            var entity = new ShoppingCart
+            {
+                UserId = userId
+            };
+
+            _dbContext.ShoppingCarts.Add(entity);
+            _dbContext.SaveChanges();
+            return entity;
+
         }
 
         public IEnumerable<ShoppingCartItemDto> GetCartItems(string email)
@@ -60,18 +71,6 @@ namespace Cryptocop.Software.API.Repositories.Implementations
 
             // Get shoppingCart
             var shoppingCart = GetShoppingCart(user.Id);
-
-            // If shoppingCart does not exist then create one 
-            if (shoppingCart == null)
-            {
-                var newShoppingCart = new ShoppingCart
-                {
-                    UserId = user.Id
-                };
-
-                _dbContext.ShoppingCarts.Add(newShoppingCart);
-                _dbContext.SaveChanges();
-            }
 
             // Create shoppingCartItem
             var entity = new ShoppingCartItem
@@ -112,7 +111,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
 
             // Get cartItem and update value
             var cartItem =_dbContext.ShoppingCartItems.FirstOrDefault(i => i.ShoppingCartId == shoppingCart.Id && i.Id == id);
-            if (cartItem == null) { throw new System.Exception("Item not found"); }
+            if (cartItem == null) { throw new ResourceNotFoundException("Item not found"); }
             System.Console.WriteLine(quantity);
             cartItem.Quantity = quantity;
             _dbContext.SaveChanges();

@@ -7,6 +7,7 @@ using Cryptocop.Software.API.Models.DTOs;
 using Cryptocop.Software.API.Models.Entities;
 using Cryptocop.Software.API.Models.InputModels;
 using Cryptocop.Software.API.Repositories.Contexts;
+using Cryptocop.Software.API.Repositories.Helpers;
 using Cryptocop.Software.API.Repositories.Interfaces;
 
 namespace Cryptocop.Software.API.Repositories.Implementations
@@ -29,9 +30,9 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             return user; 
         }
 
-        private Address GetAddress(int addressId)
+        private Address GetAddress(int addressId, User user)
         {
-            var address = _dbContext.Addresses.FirstOrDefault(a => a.Id == addressId);
+            var address = _dbContext.Addresses.FirstOrDefault(a => a.Id == addressId && a.UserId == user.Id);
             if (address == null) { throw new ResourceNotFoundException("Address not found"); }
             return address; 
         }
@@ -109,7 +110,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             // Get all the items from the shoppingCart
             var cartItems = _shoppingCartRepository.GetCartItems(email);
 
-            // Insert all orderitems 
+            // Insert all orderItems 
             foreach(var item in cartItems)
             {
                 var entity = new OrderItem
@@ -132,10 +133,10 @@ namespace Cryptocop.Software.API.Repositories.Implementations
         {
             // Get user
             var user = GetUser(email);
-            if (user == null) { throw new ResourceNotFoundException("PaymentCard not found"); } 
+            if (user == null) { throw new ResourceNotFoundException("user not found"); } 
 
             // Get address
-            var address = GetAddress(order.AddressId);
+            var address = GetAddress(order.AddressId, user);
             if (address == null) { throw new ResourceNotFoundException("address not found"); } 
 
             // Get paymentCard
@@ -155,7 +156,7 @@ namespace Cryptocop.Software.API.Repositories.Implementations
                 Country = address.Country,
                 City = address.City,
                 CardHolderName = paymentCard.CardholderName,
-                MaskedCreditCard = paymentCard.CardNumber, 
+                MaskedCreditCard = PaymentCardHelper.MaskPaymentCard(paymentCard.CardNumber), 
                 OrderDate = DateTime.Now,
                 TotalPrice = (float) totalPrice,
                 userId = user.Id

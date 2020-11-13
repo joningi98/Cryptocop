@@ -24,6 +24,7 @@ namespace Cryptocop.Software.API.Controllers
         [Route("register")]
         public IActionResult Register([FromBody] RegisterInputModel register)
         {
+            if (!ModelState.IsValid) { return BadRequest(); }
             var user = _accountService.CreateUser(register);
 
             if (register.Password != register.PasswordConfirmation)
@@ -32,15 +33,16 @@ namespace Cryptocop.Software.API.Controllers
             }
 
             // Return the user
-            return Ok(_tokenService.GenerateJwtToken(user));
+            return CreatedAtRoute("",_tokenService.GenerateJwtToken(user));
         }
 
         [HttpPost]
         [Route("signin")]
         public IActionResult SignIn([FromBody] LoginInputModel login)
         {
+            if (!ModelState.IsValid) { return BadRequest(); }
             var user = _accountService.AuthenticateUser(login);
-            if (user == null) { return Unauthorized(); }
+            if (user == null) { return NotFound(); }
             var token = _tokenService.GenerateJwtToken(user);
             return Ok(token);
         }

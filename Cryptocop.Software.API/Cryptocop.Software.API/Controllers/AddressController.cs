@@ -38,7 +38,7 @@ namespace Cryptocop.Software.API.Controllers
             var email = GetEmail();
             if (email == null ) { return NotFound(); }
             _addressService.AddAddress(email, addressInput);
-            return Ok();
+            return CreatedAtRoute("", null);
         }
 
         [Route("{addressId:int}")]
@@ -48,7 +48,7 @@ namespace Cryptocop.Software.API.Controllers
             var email = GetEmail();
             if (email == null ) { return NotFound(); }
             _addressService.DeleteAddress(email, addressId);
-            return Ok();
+            return NoContent();
         }
     }
 }

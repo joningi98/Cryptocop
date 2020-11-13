@@ -38,6 +38,7 @@ namespace Cryptocop.Software.API.Controllers
         [HttpPost]
         public IActionResult CreatePaymentCard([FromBody] PaymentCardInputModel paymentCard)
         {
+            if (!ModelState.IsValid) { return BadRequest("Input state wrong"); }
             // Get email
             var email = GetEmail();
             if (email == null) { return NotFound(); }
@@ -46,7 +47,7 @@ namespace Cryptocop.Software.API.Controllers
 
             // Crete paymentCard
             _paymentService.AddPaymentCard(email, paymentCard);
-            return Ok();
+            return CreatedAtRoute("",null);
         }
     }
 }

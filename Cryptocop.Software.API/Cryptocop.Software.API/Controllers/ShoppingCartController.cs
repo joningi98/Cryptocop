@@ -36,6 +36,7 @@ namespace Cryptocop.Software.API.Controllers
         [HttpPost]
         public IActionResult AddItemToCart([FromBody] ShoppingCartItemInputModel shoppingCartItem)
         {
+            if (!ModelState.IsValid) { return BadRequest();}
             //Get email
             var email = GetEmail();
 
@@ -56,13 +57,13 @@ namespace Cryptocop.Software.API.Controllers
         [HttpPatch]
         public IActionResult UpdateShoppingCartItemQuantity([FromBody] ShoppingCartItemInputModel shoppingCartItemInput, int itemId)
         {
-            if (!ModelState.IsValid) { return BadRequest(); }
             var quantity = shoppingCartItemInput.Quantity.GetValueOrDefault();
+            if (quantity < 0) { return BadRequest(); }
             //Get email
             var email = GetEmail();
             if (email == null) { return NotFound(); }
             _shoppingCartService.UpdateCartItemQuantity(email, itemId, quantity);
-            return Ok();
+            return NoContent();
         }
 
         [HttpDelete]

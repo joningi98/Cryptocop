@@ -26,7 +26,7 @@ namespace Cryptocop.Software.API.Services.Implementations
             var client = new HttpClient();
             var response = await client.GetAsync(requestUri);
 
-            var exchangeList = await response.DeserializeJsonToList<ExchangeItem>(true);
+            var exchangeList = await response.DeserializeJsonToObject<ExchangeItem>(true);
             var envelope = new Envelope<ExchangeDto>
             {
                 Items = _mapper.Map<IEnumerable<ExchangeDto>>(exchangeList),

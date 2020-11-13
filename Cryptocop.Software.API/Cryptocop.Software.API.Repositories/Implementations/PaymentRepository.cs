@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Cryptocop.Software.API.Models.DTOs;
 using Cryptocop.Software.API.Models.Entities;
 using Cryptocop.Software.API.Models.Exceptions;
@@ -29,12 +30,15 @@ namespace Cryptocop.Software.API.Repositories.Implementations
             // Get user
             var user = GetUser(email);
 
+            // Remove all white space
+            var formattedCard = paymentCard.CardNumber = Regex.Replace(paymentCard.CardNumber, @"\s+", "");
+
             // Create paymentCard
             var entity = new PaymentCard
             {
                 UserId = user.Id,
                 CardholderName = paymentCard.CardholderName,
-                CardNumber = PaymentCardHelper.MaskPaymentCard(paymentCard.CardNumber),
+                CardNumber = PaymentCardHelper.MaskPaymentCard(formattedCard),
                 Month = paymentCard.Month,
                 Year = paymentCard.Year
             };
